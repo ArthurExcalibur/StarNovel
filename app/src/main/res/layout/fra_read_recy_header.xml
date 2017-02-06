@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fra_read_recy_header_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="12sp"
+                android:textColor="#FFF"
+                android:background="@mipmap/local"
+                android:layout_gravity="center"
+                android:padding="15dp"
+                />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/fra_read_recy_header_bookLayoutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_above="@+id/fra_read_recy_header_percent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="15sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                />
+
+            <TextView
+                android:id="@+id/fra_read_recy_header_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已读:65.35%"
+                android:textColor="#FFF"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/fra_read_recy_header_continue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="继续阅读"
+                android:textColor="#FFF"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:textSize="12sp"
+                android:background="@drawable/corner_shape"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_below="@+id/fra_read_recy_header_percent"
+                android:layout_marginTop="15dp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/fra_read_recy_header_tishi"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="您上一次阅览的书籍会放在这里"
+        android:textSize="15sp"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        />
+</RelativeLayout>

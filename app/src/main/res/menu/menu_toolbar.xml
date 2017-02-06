@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/toolbar_search"
+        android:title="查找"
+        android:icon="@mipmap/search"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/toolbar_import"
+        android:title="导入"
+        android:icon="@mipmap/importbook"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/toolbar_manage"
+        android:title="书籍管理"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/toolbar_deleteAll"
+        android:title="全选"
+        app:showAsAction="always|withText"/>
+
+</menu>

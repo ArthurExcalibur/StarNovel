@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">StarNovel</string>
+
+    <string name="setting">设置</string>
+    <string name="exit">退出</string>
+    <string name="MoreSetting">更多设置</string>
+    <string name="usefulSetting">常用设置</string>
+    <string name="volumePage">音量键翻页</string>
+    <string name="screenPage">点击屏幕两侧翻页</string>
+    <string name="shownotification">显示通知栏</string>
+    <string name="property">横屏</string>
+    <string name="pageMode">翻页模式</string>
+    <string name="mode1">覆盖</string>
+    <string name="mode2">仿真</string>
+    <string name="mode3">上下</string>
+    <string name="mode4">无</string>
+
+    <string name="ScreenTime">屏保时间</string>
+    <string name="time1">5分钟</string>
+    <string name="time2">10分钟</string>
+    <string name="time3">常亮</string>
+    <string name="time4">系统</string>
+    <string name="nightmode">夜间模式</string>
+    <string name="downloadmanage">下载管理</string>
+    <string name="wifisend">WIFI传书</string>
+    <string name="bookmanage">书籍管理</string>
+
+    <string name="testForPage">账户上大号发送的接口和发送快递就恢复健康是的哈反馈就是东方卡收到回复即可拉伸的法律上看到后付款了沙发空间里收到上点击发送了快递就分手了多久发牢骚的空间发来撒可点击付款拉萨的减肥路上</string>
+
+</resources>

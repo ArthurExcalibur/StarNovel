@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/fra_read_items_book"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/fra_read_items_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AAA"
+            android:textColor="#FFF"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:background="@mipmap/local"
+            />
+
+        <TextView
+            android:id="@+id/fra_read_items_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="龙族III黑月之潮上中下全集(上中下)"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+        <TextView
+            android:id="@+id/fra_read_items_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已读1%"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="#5000"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/fra_read_items_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@null"
+        android:background="@drawable/delete_book_selector"
+        />
+
+</FrameLayout>

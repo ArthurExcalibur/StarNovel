@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.excalibur.starnovel.view.ThemeChangeableRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <com.excalibur.starnovel.view.ThemeChangeableTextView
+        android:id="@+id/items_title_listview_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:maxLines="1"
+        android:textSize="12sp"
+        android:ellipsize="end"
+        android:layout_marginRight="70dp"
+        android:background="?attr/myTextBgColor"
+        android:textColor="?attr/myTextTextColor"
+        >
+    </com.excalibur.starnovel.view.ThemeChangeableTextView>
+
+    <com.excalibur.starnovel.view.ThemeChangeableImageView
+        android:id="@+id/items_title_listview_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@mipmap/shuqian"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        />
+
+</com.excalibur.starnovel.view.ThemeChangeableRelativeLayout>
+
+

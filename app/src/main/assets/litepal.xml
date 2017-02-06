@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<litepal>
+    <dbname value="novel"></dbname>
+
+    <version value="1"></version>
+
+    <list>
+        <mapping class="com.excalibur.starnovel.bean.Book"></mapping>
+    </list>
+</litepal>

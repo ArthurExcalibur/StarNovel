@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.excalibur.starnovel.view.ThemeChangeableLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/myTitleBgColor"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    >
+
+    <com.excalibur.starnovel.view.ThemeChangeableLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_fontNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字号"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_font_less"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_font_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_font_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="++"
+            android:padding="20dp"
+            />
+
+    </com.excalibur.starnovel.view.ThemeChangeableLinearLayout>
+
+    <com.excalibur.starnovel.view.ThemeChangeableLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_themeNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主题"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_theme1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主题1"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_theme2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主题2"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_theme3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主题3"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_theme4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主题4"
+            android:textColor="?attr/myTextTextColor"
+            android:padding="20dp"
+            />
+
+    </com.excalibur.starnovel.view.ThemeChangeableLinearLayout>
+
+</com.excalibur.starnovel.view.ThemeChangeableLinearLayout>

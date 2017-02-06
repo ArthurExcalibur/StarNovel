@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.excalibur.starnovel.view.ThemeChangeableDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_read_drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/activity_read_content"/>
+
+    <com.excalibur.starnovel.view.ThemeChangeableRelativeLayout
+        android:id="@+id/activity_read_drawerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="start"
+        android:background="?attr/myTextBgColor"
+        android:elevation="10dp"
+        >
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_drawerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dhaskjdhaskjdhask"
+            android:layout_margin="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="15sp"
+            android:background="?attr/myTextBgColor"
+            android:textColor="?attr/myTextTextColor"
+            />
+        <com.excalibur.starnovel.view.ThemeChangeableListView
+            android:layout_below="@+id/activity_read_drawerTitle"
+            android:id="@+id/activity_read_mulu_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:background="?attr/myTextBgColor"
+            android:textColor="?attr/myTextTextColor"
+            />
+    </com.excalibur.starnovel.view.ThemeChangeableRelativeLayout>
+
+</com.excalibur.starnovel.view.ThemeChangeableDrawerLayout>

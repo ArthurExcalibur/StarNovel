@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fra_read_recyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/fra_read_importLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="书架上暂时没有书籍,试试一键导入?"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            />
+
+        <Button
+            android:id="@+id/fra_read_importBtn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="一键导入书籍"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@mipmap/imp"/>
+    </LinearLayout>
+
+</RelativeLayout>

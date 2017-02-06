@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.excalibur.starnovel.view.ThemeChangeableRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/myTitleBgColor"
+    android:id="@+id/activity_read_dialogFunc"
+    >
+
+    <com.excalibur.starnovel.view.ThemeChangeableLinearLayout
+        android:id="@+id/cvb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_former"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上一章"
+            android:textColor="?attr/myTextTextColor"
+            android:layout_margin="20dp"
+            />
+
+        <SeekBar
+            android:id="@+id/activity_read_seekbar"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            />
+
+        <com.excalibur.starnovel.view.ThemeChangeableTextView
+            android:id="@+id/activity_read_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下一章"
+            android:textColor="?attr/myTextTextColor"
+            android:layout_margin="20dp"
+            />
+    </com.excalibur.starnovel.view.ThemeChangeableLinearLayout>
+
+    <com.excalibur.starnovel.view.ThemeChangeableRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/cvb"
+        />
+
+    <com.excalibur.starnovel.view.ThemeChangeableLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cvb"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <com.excalibur.starnovel.view.ThemeChangeableImageView
+            android:id="@+id/activity_read_font"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/font"
+            />
+        <com.excalibur.starnovel.view.ThemeChangeableImageView
+            android:id="@+id/activity_read_light"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/readlight"
+            />
+        <com.excalibur.starnovel.view.ThemeChangeableImageView
+            android:id="@+id/activity_read_mulu"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mulu"
+            />
+        <com.excalibur.starnovel.view.ThemeChangeableImageView
+            android:id="@+id/activity_read_more"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/readmore"
+            />
+    </com.excalibur.starnovel.view.ThemeChangeableLinearLayout>
+
+</com.excalibur.starnovel.view.ThemeChangeableRelativeLayout>

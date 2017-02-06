@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <attr name="myTitleBgColor" format="reference|color"/>
+        <attr name="myTitleTextColor" format="reference|color"/>
+        <attr name="myTextBgColor" format="reference|color"/>
+        <attr name="myTextTextColor" format="reference|color"/>
+</resources>

@@ -1,0 +1,81 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- -->
+    <style name="DetailTheme" parent="AppTheme"></style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="AnimButtom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/buttom_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/buttom_exit_anim</item>
+    </style>
+    <style name="AnimTop" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/top_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/top_exit_anim</item>
+    </style>
+    <style name="ButtomActivityStyle">
+        <item name="android:windowAnimationStyle">@style/AnimButtom</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="ReadDialogTheme" parent="ButtomActivityStyle">
+        <item name="android:windowBackground">?attr/myTextBgColor</item>
+        <item name="android:textColor">?attr/myTextTextColor</item>
+    </style>
+
+    <style name="SettingItemsTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <!--<item name="android:background">@drawable/fanye_selector</item>-->
+    </style>
+
+    <style name="ReadTheme1">
+        <item name="myTitleBgColor">#FAFAFA</item>
+        <item name="myTitleTextColor">#4D4D4D</item>
+        <item name="myTextBgColor">#FFFBEE</item>
+        <item name="myTextTextColor">#8C857B</item>
+    </style>
+
+    <style name="ReadTheme2">
+        <item name="myTitleBgColor">#FFEECC</item>
+        <item name="myTitleTextColor">#985410</item>
+        <item name="myTextBgColor">#F7DFB5</item>
+        <item name="myTextTextColor">#5A4129</item>
+    </style>
+
+    <!-- 夜间模式 -->
+    <style name="ReadTheme3">
+        <item name="myTitleBgColor">#43484c</item>
+        <item name="myTitleTextColor">#8AB8E5</item>
+        <item name="myTextBgColor">#333D4A</item>
+        <item name="myTextTextColor">#84929c</item>
+    </style>
+
+    <!-- 背景全黑 -->
+    <style name="ReadTheme4">
+        <item name="myTitleBgColor">#FAFAFA</item>
+        <item name="myTitleTextColor">#4D4D4D</item>
+        <item name="myTextBgColor">#000000</item>
+        <item name="myTextTextColor">#848284</item>
+    </style>
+
+</resources>
