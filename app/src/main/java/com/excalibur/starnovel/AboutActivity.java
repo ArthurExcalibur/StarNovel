@@ -26,6 +26,11 @@ public class AboutActivity extends BaseActivity{
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
     }
