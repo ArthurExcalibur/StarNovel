@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Administrator on 2017/1/13.
+ * Created by Excalibur on 2017/1/13.
  */
 public class RijiActivity extends BaseActivity {
 

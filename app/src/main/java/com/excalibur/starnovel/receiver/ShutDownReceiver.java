@@ -10,7 +10,7 @@ import com.excalibur.starnovel.bean.Book;
 import com.excalibur.starnovel.utils.ActivityController;
 
 /**
- * Created by Administrator on 2017/2/6.
+ * Created by Excalibur on 2017/2/6.
  * save read percent when device shutdown during reading period.
  */
 public class ShutDownReceiver extends BroadcastReceiver {

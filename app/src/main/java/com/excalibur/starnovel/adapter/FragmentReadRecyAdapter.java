@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Administrator on 2017/1/5.
+ * Created by Excalibur on 2017/1/5.
  * 首页书架RecyclerView的Adapter
  */
 public class FragmentReadRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

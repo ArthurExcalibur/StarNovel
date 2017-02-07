@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.excalibur.starnovel.ImportBookActivity;
 import com.excalibur.starnovel.MainActivity;
@@ -29,7 +30,7 @@ import com.excalibur.starnovel.bean.Book;
 import java.io.File;
 
 /**
- * Created by Administrator on 2017/1/5.
+ * Created by Excalibur on 2017/1/5.
  */
 public class ReadFragment extends Fragment implements View.OnClickListener{
 
@@ -177,6 +178,7 @@ public class ReadFragment extends Fragment implements View.OnClickListener{
                         changeActivity(ReadActivity.class,NovelApplication.getFirstBook().getPath());
                     }else{
                         //...
+                        Toast.makeText(getActivity(),"该书籍路径不存在或者已经改变,无法打开",Toast.LENGTH_SHORT).show();
                     }
                 }
                 break;

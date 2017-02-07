@@ -13,7 +13,7 @@ import com.excalibur.starnovel.R;
 import com.excalibur.starnovel.adapter.WriteViewPagerAdapter;
 
 /**
- * Created by Administrator on 2017/1/5.
+ * Created by Excalibur on 2017/1/5.
  */
 public class WriteFragment extends Fragment {
 

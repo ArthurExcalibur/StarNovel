@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import com.excalibur.starnovel.utils.Constants;
 
 /**
- * Created by Administrator on 2017/1/5.
+ * Created by Excalibur on 2017/1/5.
  */
 public class SplashActivity extends BaseActivity {
 

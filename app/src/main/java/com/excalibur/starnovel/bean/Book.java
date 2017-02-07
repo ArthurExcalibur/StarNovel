@@ -3,7 +3,7 @@ package com.excalibur.starnovel.bean;
 import org.litepal.crud.DataSupport;
 
 /**
- * Created by Administrator on 2017/1/5.
+ * Created by Excalibur on 2017/1/5.
  */
 public class Book extends DataSupport{
 

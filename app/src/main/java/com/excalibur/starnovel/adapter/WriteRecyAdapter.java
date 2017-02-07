@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * 原创界面第一个页面的RecyclerView的Adapter
- * Created by Administrator on 2017/1/13.
+ * Created by Excalibur on 2017/1/13.
  */
 public class WriteRecyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 

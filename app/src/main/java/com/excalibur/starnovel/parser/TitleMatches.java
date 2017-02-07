@@ -3,7 +3,7 @@ package com.excalibur.starnovel.parser;
 import java.util.regex.Pattern;
 
 /**
- * Created by Administrator on 2017/1/12.
+ * Created by Excalibur on 2017/1/12.
  * 这个类用来判断某一行是否为新章节
  * 判定条件:1.如果是新章节则必定以"第"开头，且至少包含关键字数组key中的一个元素，且"第"到该关键字中的内容匹配正则p
  *          2.如果是额外章节，则其单行长度(去掉空格之后)不得超过3，且至少满足下列条件中的一条

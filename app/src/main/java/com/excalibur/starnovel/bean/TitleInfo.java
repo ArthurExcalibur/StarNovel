@@ -1,7 +1,7 @@
 package com.excalibur.starnovel.bean;
 
 /**
- * Created by Administrator on 2017/1/12.
+ * Created by Excalibur on 2017/1/12.
  */
 public class TitleInfo {
 

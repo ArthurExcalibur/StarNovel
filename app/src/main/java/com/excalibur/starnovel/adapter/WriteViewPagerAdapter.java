@@ -7,7 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.excalibur.starnovel.fragment.WritePublicFragment;
 
 /**
- * Created by Administrator on 2017/1/13.
+ * Created by Excalibur on 2017/1/13.
+ * 原创界面ViewPager的Adapter
  */
 public class WriteViewPagerAdapter extends FragmentPagerAdapter {
 
