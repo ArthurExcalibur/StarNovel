@@ -22,6 +22,5 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityController.removeActivity(this);
-        Log.e("TestForDebug","BaseActivity onDestroy..");
     }
 }

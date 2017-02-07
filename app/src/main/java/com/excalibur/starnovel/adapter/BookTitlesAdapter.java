@@ -1,9 +1,13 @@
 package com.excalibur.starnovel.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.excalibur.starnovel.R;
 import com.excalibur.starnovel.bean.TitleInfo;
@@ -14,24 +18,25 @@ import java.util.List;
 
 /**
  * Created by Excalibur on 2016/12/6.
- * 阅读界面的目录ListView的Adapter
+ * 阅读界面的目录RecyclerView的Adapter
  */
-public class BookTitlesAdapter extends BaseAdapter{
+public class BookTitlesAdapter extends RecyclerView.Adapter<BookTitlesAdapter.TitleHolder>{
 
     private List<TitleInfo> infos;
-    private Context mContext;
+    private LayoutInflater inflater;
 
     private int selectedPosition;
 
     public BookTitlesAdapter(Context context,List<TitleInfo> infos,int pos){
         this.infos = infos;
-        mContext = context;
+        inflater = LayoutInflater.from(context);
         selectedPosition = pos;
     }
 
     public void setItemSelected(int pos){
         selectedPosition = pos;
-        notifyDataSetChanged();
+        notifyItemChanged(pos);
+        //notifyDataSetChanged();
     }
 
     public int getSelectedPosition(){
@@ -39,45 +44,49 @@ public class BookTitlesAdapter extends BaseAdapter{
     }
 
     @Override
-    public int getCount() {
+    public BookTitlesAdapter.TitleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.items_title_listview,parent,false);
+        return new TitleHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(BookTitlesAdapter.TitleHolder holder, final int position) {
+        if(listener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClicked(position);
+                }
+            });
+        }
+        holder.title.setText(infos.get(position).getTitle());
+        if(position == selectedPosition){
+            holder.focus.setVisibility(View.VISIBLE);
+        }else{
+            holder.focus.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public int getItemCount() {
         return infos.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return infos.get(position);
+    private OnItemClickListener listener;
+    public interface OnItemClickListener{
+        void onItemClicked(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener l){
+        listener = l;
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View view;
-        TitleHolder holder;
-        if(convertView == null){
-            view = View.inflate(mContext,R.layout.items_title_listview,null);
-            holder = new TitleHolder();
-            holder.titleView = (ThemeChangeableTextView) view.findViewById(R.id.items_title_listview_text);
-            holder.imageView = (ThemeChangeableImageView) view.findViewById(R.id.items_title_listview_img);
-            view.setTag(holder);
-        }else{
-            view = convertView;
-            holder = (TitleHolder) view.getTag();
+    static class TitleHolder extends RecyclerView.ViewHolder{
+        TextView title;
+        ImageView focus;
+        public TitleHolder(View itemView) {
+            super(itemView);
+            title = (TextView) itemView.findViewById(R.id.items_title_listview_text);
+            focus = (ImageView) itemView.findViewById(R.id.items_title_listview_img);
         }
-        holder.titleView.setText(infos.get(position).getTitle());
-        if(position == selectedPosition){
-            holder.imageView.setVisibility(View.VISIBLE);
-        }else{
-            holder.imageView.setVisibility(View.GONE);
-        }
-        return view;
-    }
-
-    public final class TitleHolder{
-        ThemeChangeableTextView titleView;
-        ThemeChangeableImageView imageView;
     }
 }

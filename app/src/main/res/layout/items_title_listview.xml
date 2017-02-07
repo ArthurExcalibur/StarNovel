@@ -20,6 +20,7 @@
     </com.excalibur.starnovel.view.ThemeChangeableTextView>
 
     <com.excalibur.starnovel.view.ThemeChangeableImageView
+        android:visibility="gone"
         android:id="@+id/items_title_listview_img"
         android:layout_width="20dp"
         android:layout_height="20dp"

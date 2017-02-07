@@ -1,4 +1,4 @@
-package com.excalibur.starnovel.view;
+package com.excalibur.starnovel;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,9 +6,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
-import com.excalibur.starnovel.BaseActivity;
-import com.excalibur.starnovel.R;
 
 /**
  * Created by Excalibur on 2017/2/7.

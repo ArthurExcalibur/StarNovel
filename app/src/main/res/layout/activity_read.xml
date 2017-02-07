@@ -29,15 +29,17 @@
             android:background="?attr/myTextBgColor"
             android:textColor="?attr/myTextTextColor"
             />
-        <com.excalibur.starnovel.view.ThemeChangeableListView
+
+        <com.excalibur.starnovel.view.ThemeChangeableRecyclerView
             android:layout_below="@+id/activity_read_drawerTitle"
-            android:id="@+id/activity_read_mulu_listview"
+            android:id="@+id/activity_read_mulu_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="none"
             android:background="?attr/myTextBgColor"
-            android:textColor="?attr/myTextTextColor"
-            />
+            android:textColor="?attr/myTextTextColor">
+
+        </com.excalibur.starnovel.view.ThemeChangeableRecyclerView>
+
     </com.excalibur.starnovel.view.ThemeChangeableRelativeLayout>
 
 </com.excalibur.starnovel.view.ThemeChangeableDrawerLayout>

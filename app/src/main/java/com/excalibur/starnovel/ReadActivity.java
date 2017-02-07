@@ -15,6 +15,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -57,7 +59,7 @@ public class ReadActivity extends BaseActivity implements
 
     private DrawerLayout drawerLayout;
     private ThemeChangeableRelativeLayout drawerView;
-    private ListView muluListView;
+    private RecyclerView muluListView;
 
     private LinearLayout firstUseLayout;//首次使用时展示的视图
     private ThemeChangeableTextView loadingText;
@@ -301,12 +303,11 @@ public class ReadActivity extends BaseActivity implements
     }
 
     private void initViewsAfterParse(String msg){
-        muluListView = (ListView) findViewById(R.id.activity_read_mulu_listview);
+        muluListView = (RecyclerView) findViewById(R.id.activity_read_mulu_recycler);
         adapter = new BookTitlesAdapter(ReadActivity.this,localNovelParser.getTitleList(),localNovelParser.getCurrentIndex());
-        muluListView.setAdapter(adapter);
-        muluListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adapter.setOnItemClickListener(new BookTitlesAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClicked(int position) {
                 String res = getNextPageByType(CHANGE.SEEK_INDEX,position);
                 if(res != null){
                     Toast.makeText(ReadActivity.this,res,Toast.LENGTH_SHORT).show();
@@ -316,6 +317,8 @@ public class ReadActivity extends BaseActivity implements
                 }
             }
         });
+        muluListView.setAdapter(adapter);
+        muluListView.setLayoutManager(new LinearLayoutManager(ReadActivity.this));
 
         textView1.setText(msg);
         pageContent = msg;
@@ -353,12 +356,19 @@ public class ReadActivity extends BaseActivity implements
 
     public void showMuluMenu(){
         if(!drawerLayout.isDrawerOpen(drawerView)){
+
+            //muluListView.scrollToPosition(index);
             drawerLayout.openDrawer(drawerView);
-            //adapter.setItemSelected(parser.getIndexNumber());
+
+            LinearLayoutManager manager = (LinearLayoutManager) muluListView.getLayoutManager();
+            int index = localNovelParser.getCurrentIndex();// - (pos / 2);
+            int start = manager.findFirstVisibleItemPosition();
+            int end = manager.findLastVisibleItemPosition();
+            index = index - ((end - start) / 2);
+            index = index > 0 ? index : 0;
+            muluListView.scrollToPosition(index);
             adapter.setItemSelected(localNovelParser.getCurrentIndex());
-            int pos = muluListView.getLastVisiblePosition() - muluListView.getFirstVisiblePosition();
-            int index = localNovelParser.getCurrentIndex() - (pos / 2);
-            muluListView.setSelection(index > 0 ? index : 0);
+
             if(funcDialog.isShowing()){
                 funcDialog.dismiss();
             }
