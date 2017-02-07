@@ -3,6 +3,7 @@ package com.excalibur.starnovel;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,7 +18,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
@@ -30,6 +32,7 @@ import com.excalibur.starnovel.dao.impl.DatabaseDaoImpl;
 import com.excalibur.starnovel.fragment.MarketFragment;
 import com.excalibur.starnovel.fragment.ReadFragment;
 import com.excalibur.starnovel.fragment.WriteFragment;
+import com.excalibur.starnovel.receiver.ShutDownReceiver;
 import com.excalibur.starnovel.utils.ActivityController;
 
 import java.util.ArrayList;
@@ -60,12 +63,19 @@ public class MainActivity extends BaseActivity implements
 
     private Dialog deleteBookDialog;
 
+    ShutDownReceiver receiver;
+    CheckBox deleteLocal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dao = new DatabaseDaoImpl();
         initViews();
+
+        receiver = new ShutDownReceiver();
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SHUTDOWN);
+        registerReceiver(receiver,filter);
     }
 
     private void initViews() {
@@ -129,12 +139,27 @@ public class MainActivity extends BaseActivity implements
         if(deleteBookDialog == null){
             deleteBookDialog = new Dialog(this);
             View view = LayoutInflater.from(this).inflate(R.layout.dialog_remove_book,null);
+
+            Button cancel = (Button) view.findViewById(R.id.dialog_remove_cancel);
+            Button ensure = (Button) view.findViewById(R.id.dialog_remove_delete);
+            deleteLocal = (CheckBox) view.findViewById(R.id.dialog_remove_deleteLocal);
+            cancel.setOnClickListener(this);
+            ensure.setOnClickListener(this);
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setCancelable(true);
             builder.setView(view);
-            deleteBookDialog = builder.show();
+            deleteBookDialog = builder.create();
         }
+        deleteBookDialog.show();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(null != receiver){
+            unregisterReceiver(receiver);
+        }
     }
 
     @Override
@@ -162,9 +187,6 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void onBackPressed() {
         if(NovelApplication.isManageMode){
-            if(readFragment != null){
-                readFragment.clearAllSelectedItems();
-            }
             manageBook(false);
             return;
         }
@@ -229,9 +251,10 @@ public class MainActivity extends BaseActivity implements
         if(enter){
             manageLayout.setVisibility(View.VISIBLE);
             manageDelete.setVisibility(View.GONE);
-            manageDelete.setText("全部删除(0)");
-            manageDelete.setAlpha(0.4f);
         }else {
+            readFragment.clearAllSelectedItems();
+            manageDelete1.setText("全部删除(0)");
+            manageDelete1.setAlpha(0.4f);
             manageLayout.setVisibility(View.GONE);
         }
         invalidateOptionsMenu();
@@ -273,7 +296,8 @@ public class MainActivity extends BaseActivity implements
             case R.id.activity_main_manage_cancel:{
                 if(NovelApplication.isManageMode){
                     manageBook(false);
-                    readFragment.selectedAllItems();
+                    //readFragment.clearAllSelectedItems();
+                    //readFragment.selectedAllItems();
                 }
                 if(NovelApplication.isEditMode){
                     manageEditMode(false);
@@ -287,12 +311,19 @@ public class MainActivity extends BaseActivity implements
                 if(manageDelete1.getAlpha() == 1){
                     //删除所有选中的书籍
                     if(NovelApplication.isManageMode){
-                        readFragment.deleteAllSelectedItems();
-                        manageBook(false);
+                        showDeleteBookDialog();
                     }
                 }
                 break;
             }
+            case R.id.dialog_remove_cancel:
+                deleteBookDialog.dismiss();
+                break;
+            case R.id.dialog_remove_delete:
+                readFragment.deleteAllSelectedItems(deleteLocal.isChecked());
+                manageBook(false);
+                deleteBookDialog.dismiss();
+                break;
         }
     }
 

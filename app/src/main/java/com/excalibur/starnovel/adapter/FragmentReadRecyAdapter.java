@@ -20,6 +20,7 @@ import com.excalibur.starnovel.utils.ScreenUtils;
 
 import org.litepal.crud.DataSupport;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -149,7 +150,7 @@ public class FragmentReadRecyAdapter extends RecyclerView.Adapter<RecyclerView.V
         return selectedBooks.size();
     }
 
-    public boolean deleteAllItemSelected(){
+    public boolean deleteAllItemSelected(boolean deleteLocal){
         boolean flag = false;
         int size = NovelApplication.allBoosInSQLite.size();
         List<Book> deleteList = new ArrayList<>();
@@ -163,6 +164,10 @@ public class FragmentReadRecyAdapter extends RecyclerView.Adapter<RecyclerView.V
         for (Book b : deleteList) {
             NovelApplication.allBoosInSQLite.remove(b);
             DataSupport.deleteAll(Book.class,"path=?",b.getPath());
+            if(deleteLocal){
+                File f = new File(b.getPath());
+                f.delete();
+            }
         }
         deleteList.clear();
         //selectedBooks.clear();

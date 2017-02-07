@@ -8,6 +8,8 @@ import java.text.DecimalFormat;
 public class Constants {
     public static final String SHARE_PREFS = "config";
 
+    public static final String NOT_UPDATE_CODE = "not_update_code";
+
     public static final String IS_NIGHTMODE = "nightMode";
     public static final String THMEE = "theme";
 

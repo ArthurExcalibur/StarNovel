@@ -26,6 +26,8 @@ import com.excalibur.starnovel.adapter.FragmentReadRecyAdapter;
 import com.excalibur.starnovel.application.NovelApplication;
 import com.excalibur.starnovel.bean.Book;
 
+import java.io.File;
+
 /**
  * Created by Administrator on 2017/1/5.
  */
@@ -69,7 +71,12 @@ public class ReadFragment extends Fragment implements View.OnClickListener{
                     ((MainActivity)getActivity()).updateManageLayout(adapter.getSelectedCount());
                 }else{
                     Book b = NovelApplication.allBoosInSQLite.get(NovelApplication.allBoosInSQLite.size() - 1 - position);
-                    changeActivity(ReadActivity.class, b.getPath());
+                    File f = new File(b.getPath());
+                    if(f.exists()){
+                        changeActivity(ReadActivity.class, b.getPath());
+                    }else{
+                        //...
+                    }
                 }
             }
         });
@@ -134,8 +141,8 @@ public class ReadFragment extends Fragment implements View.OnClickListener{
         return adapter.selectedBooks.size();
     }
 
-    public void deleteAllSelectedItems(){
-        adapter.deleteAllItemSelected();
+    public void deleteAllSelectedItems(boolean deleteLocal){
+        adapter.deleteAllItemSelected(deleteLocal);
         if(NovelApplication.allBoosInSQLite.isEmpty()){
             importLayout.setVisibility(View.VISIBLE);
         }else{
@@ -163,7 +170,15 @@ public class ReadFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.fra_read_recy_header_title:
             case R.id.fra_read_recy_header_continue:
-                changeActivity(ReadActivity.class,NovelApplication.getFirstBook().getPath());
+                Book b = NovelApplication.getFirstBook();
+                if(null != b){
+                    File f = new File(b.getPath());
+                    if(f.exists()){
+                        changeActivity(ReadActivity.class,NovelApplication.getFirstBook().getPath());
+                    }else{
+                        //...
+                    }
+                }
                 break;
             default:
                 break;
