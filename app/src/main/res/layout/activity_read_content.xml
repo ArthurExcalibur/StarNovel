@@ -9,6 +9,7 @@
 
     <com.excalibur.starnovel.view.ThemeChangeableScrollView
         android:scrollbars="none"
+        android:visibility="gone"
         android:id="@+id/activity_read_scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -72,7 +73,6 @@
             />
 
         <com.excalibur.starnovel.view.ThemeChangeableTextView
-            android:text="1111"
             android:textSize="15sp"
             android:id="@+id/activity_read_textview1"
             android:layout_width="match_parent"
@@ -81,7 +81,7 @@
             android:textColor="?attr/myTextTextColor"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:layout_marginTop="30dp"
+            android:paddingTop="30dp"
             android:layout_below="@+id/activity_read_contentText"
             />
     </com.excalibur.starnovel.view.ThemeChangeableRelativeLayout>

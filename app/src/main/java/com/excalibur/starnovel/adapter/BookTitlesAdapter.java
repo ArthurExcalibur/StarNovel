@@ -20,11 +20,10 @@ import java.util.List;
  * Created by Excalibur on 2016/12/6.
  * 阅读界面的目录RecyclerView的Adapter
  */
-public class BookTitlesAdapter extends RecyclerView.Adapter<BookTitlesAdapter.TitleHolder>{
+public class BookTitlesAdapter extends BaseAdapter{
 
     private List<TitleInfo> infos;
     private LayoutInflater inflater;
-
     private int selectedPosition;
 
     public BookTitlesAdapter(Context context,List<TitleInfo> infos,int pos){
@@ -35,8 +34,8 @@ public class BookTitlesAdapter extends RecyclerView.Adapter<BookTitlesAdapter.Ti
 
     public void setItemSelected(int pos){
         selectedPosition = pos;
-        notifyItemChanged(pos);
-        //notifyDataSetChanged();
+        //notifyItemChanged(pos);
+        notifyDataSetChanged();
     }
 
     public int getSelectedPosition(){
@@ -44,49 +43,45 @@ public class BookTitlesAdapter extends RecyclerView.Adapter<BookTitlesAdapter.Ti
     }
 
     @Override
-    public BookTitlesAdapter.TitleHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.items_title_listview,parent,false);
-        return new TitleHolder(view);
+    public int getCount() {
+        return infos.size();
     }
 
     @Override
-    public void onBindViewHolder(BookTitlesAdapter.TitleHolder holder, final int position) {
-        if(listener != null){
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onItemClicked(position);
-                }
-            });
+    public Object getItem(int position) {
+        return infos.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view;
+        TitleHolder holder;
+        if(convertView == null){
+            view = inflater.inflate(R.layout.items_title_listview,null);
+            holder = new TitleHolder();
+            holder.title = (TextView) view.findViewById(R.id.items_title_listview_text);
+            holder.focus = (ImageView) view.findViewById(R.id.items_title_listview_img);
+            view.setTag(holder);
+        }else{
+            view = convertView;
+            holder = (TitleHolder) view.getTag();
         }
         holder.title.setText(infos.get(position).getTitle());
-        if(position == selectedPosition){
+        if(selectedPosition == position){
             holder.focus.setVisibility(View.VISIBLE);
         }else{
             holder.focus.setVisibility(View.GONE);
         }
+        return view;
     }
 
-    @Override
-    public int getItemCount() {
-        return infos.size();
-    }
-
-    private OnItemClickListener listener;
-    public interface OnItemClickListener{
-        void onItemClicked(int position);
-    }
-    public void setOnItemClickListener(OnItemClickListener l){
-        listener = l;
-    }
-
-    static class TitleHolder extends RecyclerView.ViewHolder{
+    static class TitleHolder{
         TextView title;
         ImageView focus;
-        public TitleHolder(View itemView) {
-            super(itemView);
-            title = (TextView) itemView.findViewById(R.id.items_title_listview_text);
-            focus = (ImageView) itemView.findViewById(R.id.items_title_listview_img);
-        }
     }
 }

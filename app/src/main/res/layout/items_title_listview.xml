@@ -14,8 +14,8 @@
         android:textSize="12sp"
         android:ellipsize="end"
         android:layout_marginRight="70dp"
-        android:background="?attr/myTextBgColor"
         android:textColor="?attr/myTextTextColor"
+        android:background="?attr/myTextBgColor"
         >
     </com.excalibur.starnovel.view.ThemeChangeableTextView>
 

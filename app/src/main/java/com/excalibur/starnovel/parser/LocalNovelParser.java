@@ -42,6 +42,10 @@ public class LocalNovelParser{
         }
     }
 
+    public int getTitleCount(){
+        return titleList.size();
+    }
+
     public String getCurrentContent(){
         if(currentIndex == 0){
             //try {
